@@ -8,72 +8,215 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient"></div>
+        <div class="bg-grid"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
-                <h1>WriteSmartTechnologies</h1>
-                <p class="tagline">Automation Tools for Professional Writers</p>
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>WriteSmart<span>Technologies</span></h1>
+                    <p class="tagline">Automation Tools for Pro Writers</p>
+                </div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#installation">Installation Guide For Any Bot</a></li>
-                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="#products"><i class="fas fa-robot"></i> Our Bots</a></li>
+                    <li><a href="#installation"><i class="fas fa-download"></i> Installation</a></li>
+                    <li><a href="#contact" class="nav-cta">Get Support</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Streamline Your Writing Career</h1>
-                <p>Professional-grade Chrome extensions that automate the bidding process for freelance writers</p>
-                <div class="hero-buttons">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span>Trusted by 500+ Writers</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Supercharge Your</span>
+                    <span class="title-line gradient-text">Writing Career</span>
+                </h1>
+                <p class="hero-subtitle">Professional Chrome extensions that automate bidding so you can focus on what matters — <strong>your writing</strong>.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10x</span>
+                        <span class="stat-label">Faster Bidding</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Auto Monitoring</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Hands-Free</span>
+                    </div>
                 </div>
                 <div class="free-trial-banner">
-                    <i class="fas fa-gift"></i> All our bots come with a FREE TRIAL before subscribing!
+                    <div class="banner-glow"></div>
+                    <i class="fas fa-gift"></i>
+                    <span>All bots include a <strong>FREE TRIAL</strong> before subscribing!</span>
                 </div>
             </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="card-header">
+                        <div class="card-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="card-title">Bot Dashboard</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-stat">
+                            <i class="fas fa-check-circle"></i>
+                            <span>15 orders found</span>
+                        </div>
+                        <div class="card-stat">
+                            <i class="fas fa-bolt"></i>
+                            <span>Auto-bidding active</span>
+                        </div>
+                        <div class="card-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#products">
+                <span>Discover Our Bots</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
     </section>
 
     <section id="products" class="products">
         <div class="container">
-            <h2>Our Beast Bidding Bots</h2>
+            <div class="section-header">
+                <span class="section-tag">Our Products</span>
+                <h2>Beast Bidding Bots</h2>
+                <p>Powerful automation tools designed specifically for freelance writers</p>
+            </div>
             <div class="product-cards">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fa-solid fa-robot"></i>
+                <div class="product-card featured" data-aos="fade-up">
+                    <div class="card-glow"></div>
+                    <div class="featured-badge">
+                        <i class="fas fa-fire"></i> POPULAR
                     </div>
-                    <div class="free-trial-tag">FREE TRIAL</div>
-                    <h3>Writedom Bidding Bot</h3>
-                    <p>Automatically applies to orders on Writedom based on your customized criteria. Save time and never miss out on prime opportunities.</p>
-                    <ul class="features">
-                        <li><i class="fa-solid fa-check"></i> Auto-bid on available orders</li>
-                        <li><i class="fa-solid fa-check"></i> Customizable filters</li>
-                        <li><i class="fa-solid fa-check"></i> Browser notifications</li>
-                        <li><i class="fa-solid fa-check"></i> Works in background</li>
-                    </ul>
-                    <a href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc?utm_source=item-share-cb" class="btn download-btn" target="_blank">Add to Chrome</a>
+                    <div class="free-trial-tag">
+                        <i class="fas fa-star"></i> FREE TRIAL AVAILABLE
+                    </div>
+                    <div class="product-image">
+                        <img src="images/writedom-bot.png" alt="Writedom Bidding Bot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="product-icon-fallback">
+                            <i class="fa-solid fa-robot"></i>
+                            <span>Writedom Bot</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Writedom Bidding Bot</h3>
+                        <p>Automatically applies to orders on Writedom based on your customized criteria. Never miss out on prime opportunities.</p>
+                        <ul class="features">
+                            <li><i class="fa-solid fa-check"></i> Auto-bid on available orders</li>
+                            <li><i class="fa-solid fa-check"></i> Customizable filters</li>
+                            <li><i class="fa-solid fa-check"></i> Browser notifications</li>
+                            <li><i class="fa-solid fa-check"></i> Works in background</li>
+                        </ul>
+                        <a href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc?utm_source=item-share-cb" class="btn download-btn" target="_blank">
+                            <i class="fas fa-download"></i>
+                            <span>Get the Bot</span>
+                            <div class="btn-shine"></div>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fa-solid fa-robot"></i>
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-glow"></div>
+                    <div class="free-trial-tag">
+                        <i class="fas fa-star"></i> FREE TRIAL AVAILABLE
                     </div>
-                    <div class="free-trial-tag">FREE TRIAL</div>
-                    <h3>WritersHub Bidding Bot</h3>
-                    <p>Monitors WritersHub for available orders and automates the bidding process with integrated reCAPTCHA handling.</p>
-                    <ul class="features">
-                        <li><i class="fa-solid fa-check"></i> Take button monitoring</li>
-                        <li><i class="fa-solid fa-check"></i> reCAPTCHA integration</li>
-                        <li><i class="fa-solid fa-check"></i> Customizable settings</li>
-                        <li><i class="fa-solid fa-check"></i> Instant alerts</li>
-                    </ul>
-                    <a href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch?utm_source=item-share-cb" class="btn download-btn" target="_blank">Add to Chrome</a>
+                    <div class="product-image">
+                        <img src="images/writershub-bot.png" alt="WritersHub Bidding Bot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="product-icon-fallback">
+                            <i class="fa-solid fa-robot"></i>
+                            <span>WritersHub Bot</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>WritersHub Bidding Bot</h3>
+                        <p>Monitors WritersHub for available orders and automates the bidding process seamlessly.</p>
+                        <ul class="features">
+                            <li><i class="fa-solid fa-check"></i> Take button monitoring</li>
+                            <li><i class="fa-solid fa-check"></i> Customizable settings</li>
+                            <li><i class="fa-solid fa-check"></i> Instant alerts</li>
+                            <li><i class="fa-solid fa-check"></i> Works in background</li>
+                        </ul>
+                        <a href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch?utm_source=item-share-cb" class="btn download-btn" target="_blank">
+                            <i class="fas fa-download"></i>
+                            <span>Install the Bot</span>
+                            <div class="btn-shine"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Lightning Fast</h4>
+                    <p>Bids are placed instantly when orders appear</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Secure & Safe</h4>
+                    <p>Your credentials stay on your device only</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h4>Fully Customizable</h4>
+                    <p>Set your own filters and preferences</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>We're always here to help you succeed</p>
                 </div>
             </div>
         </div>
@@ -81,55 +224,62 @@
 
     <section id="installation" class="installation">
         <div class="container">
-            <h2>Installation Guide</h2>
+            <div class="section-header">
+                <span class="section-tag">Getting Started</span>
+                <h2>Installation Guide</h2>
+                <p>Get up and running in just a few minutes</p>
+            </div>
             <div class="installation-steps">
-                <div class="step">
-                    <h3><i class="fa-brands fa-chrome"></i> Step 1: Add Extension to Chrome</h3>
-                    <p>Click the "Add to Chrome" button above for your desired bot. This will take you to the Chrome Web Store.</p>
-                    <p>Click the "Add to Chrome" button on the right top side of the Chrome Web Store page and confirm the installation when prompted.</p>
-                    <div class="extra-tip">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Ensure you are using the latest version of Chrome for optimal performance.</span>
-                </div>
-
-                <div class="step">
-                    <h3><i class="fa-solid fa-thumbtack"></i> Step 2: Pin the Extension</h3>
-                    <p>After installation, pin the extension for easy access:</p>
-                    <ol>
-                        <li>Click the puzzle piece icon in the top-right corner of Chrome</li>
-                        <li>Find the bot extension in the dropdown list</li>
-                        <li>Click the pin icon next to it to keep it visible in your toolbar</li>
-                    </ol>
-                </div>
-
-                <div class="step">
-                    <h3><i class="fa-solid fa-shield-halved"></i> Step 3: Install RektCaptcha (Required for WritersHub Bot)</h3>
-                    <p>If you're using the WritersHub Bidding Bot, you'll need to install the RektCaptcha extension:</p>
-                    <ol>
-                        <li>Visit the <a href="https://chromewebstore.google.com/detail/bbdhfoclddncoaomddgkaaphcnddbpdh?utm_source=item-share-cb" target="_blank">RektCaptcha Chrome Web Store page</a></li>
-                        <li>Click "Add to Chrome" and confirm the installation</li>
-                        <li>No need to pin this extension, just open it, activate the settings of the rektcaptcha and set all timers to 0 for optimal performance</li>
-                    </ol>
-                    <div class="extra-tip">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>RektCaptcha helps handle CAPTCHA verification automatically for the WritersHub bot.</span>
+                <div class="step" data-step="1">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3><i class="fa-brands fa-chrome"></i> Add Extension to Chrome</h3>
+                        <p>Click the "Get the Bot" or "Install the Bot" button for your desired bot above. This will take you to the Chrome Web Store.</p>
+                        <p>Click the "Add to Chrome" button on the Chrome Web Store page and confirm the installation when prompted.</p>
+                        <div class="extra-tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Ensure you are using the latest version of Chrome for optimal performance.</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="step">
-                    <h3><i class="fa-solid fa-gear"></i> Step 4: Configure Your Bot</h3>
-                    <p>Click on the bot icon in your browser toolbar to access settings:</p>
-                    <ol>
-                        <li>Click start one time FREE TRIAL or activate the bot</li>
-                        <li>Configure your bidding preferences</li>
-            
-                    </ol>
+                <div class="step" data-step="2">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3><i class="fa-solid fa-thumbtack"></i> Pin the Extension</h3>
+                        <p>After installation, pin the extension for easy access:</p>
+                        <ol>
+                            <li>Click the puzzle piece icon <i class="fas fa-puzzle-piece"></i> in the top-right corner of Chrome</li>
+                            <li>Find the bot extension in the dropdown list</li>
+                            <li>Click the pin icon next to it to keep it visible in your toolbar</li>
+                        </ol>
+                    </div>
                 </div>
 
-                <div class="step">
-                    <h3><i class="fa-solid fa-circle-check"></i> Step 5: Start Using Your Bot</h3>
-                    <p>Make sure to save settings before clicking the Start Bidding button</p>
-                    <p>Once you click the Start Bidding button, the bot will begin monitoring and bidding on available orders based on your settings.</p>
+                <div class="step" data-step="3">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3><i class="fa-solid fa-gear"></i> Configure Your Bot</h3>
+                        <p>Click on the bot icon in your browser toolbar to access settings:</p>
+                        <ol>
+                            <li>Click start one time FREE TRIAL or activate the bot</li>
+                            <li>Configure your bidding preferences</li>
+                            <li>Set up your filters and notification settings</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="step" data-step="4">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3><i class="fa-solid fa-circle-check"></i> Start Bidding!</h3>
+                        <p>Make sure to save settings before clicking the Start Bidding button.</p>
+                        <p>Once you click the Start Bidding button, the bot will begin monitoring and bidding on available orders based on your settings.</p>
+                        <div class="extra-tip success">
+                            <i class="fas fa-rocket"></i>
+                            <span>That's it! Sit back and let the bot do the work while you focus on writing.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,20 +287,39 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact Us</h2>
-            <p>Have questions or need support?</p>
+            <div class="section-header light">
+                <span class="section-tag">Get in Touch</span>
+                <h2>Contact Us</h2>
+                <p>Have questions or need support? We're here to help!</p>
+            </div>
             
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>Call/WhatsApp</h3>
-                    <p><a href="tel:+254707188251">+254 707 188 251</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
+            <div class="contact-cards">
+                <a href="tel:+254707188251" class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>+254 707 188 251</p>
+                    <span class="contact-action">Tap to call <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="https://wa.me/254707188251" class="contact-card whatsapp" target="_blank">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Quick responses</p>
+                    <span class="contact-action">Send message <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="mailto:Cephasmutisya02@gmail.com" class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <h3>Email</h3>
-                    <p><a href="mailto:Cephasmutisya02@gmail.com">Cephasmutisya02@gmail.com</a></p>
-                </div>
+                    <p>Cephasmutisya02@gmail.com</p>
+                    <span class="contact-action">Send email <i class="fas fa-arrow-right"></i></span>
+                </a>
             </div>
         </div>
     </section>
@@ -158,23 +327,33 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>WriteSmartTechnologies</h2>
-                    <p>Empowering freelance writers with automation</p>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+254707188251">+254 707 188 251</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:Cephasmutisya02@gmail.com">Cephasmutisya02@gmail.com</a></p>
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h2>WriteSmart<span>Technologies</span></h2>
+                        </div>
+                    </div>
+                    <p>Empowering freelance writers with cutting-edge automation tools.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/254707188251" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:Cephasmutisya02@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Our Bots</a></li>
+                        <li><a href="#installation">Installation Guide</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
+                    </ul>
                 </div>
-                <div class="footer-social">
-                    <h3>Connect With Us</h3>
-                    <div class="social-icons">
-                        <a href="https://wa.me/254707188251"><i class="fab fa-whatsapp"></i></a>
-                        <a href="mailto:Cephasmutisya02@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone-alt"></i> +254 707 188 251</p>
+                    <p><i class="fas fa-envelope"></i> Cephasmutisya02@gmail.com</p>
                 </div>
             </div>
             <div class="copyright">
