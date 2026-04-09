@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================================
-    // Reviews: move to top section and render dynamic testimonials
+    // Reviews: move to top section + Firebase-backed reviews
     // ============================================================
     const productsSection = document.getElementById('products');
     const reviewsSection = document.getElementById('reviews');
@@ -98,34 +98,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const reviewsTrack = document.getElementById('reviewsTrack');
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewFormStatus = document.getElementById('reviewFormStatus');
+    const writedomRatingValue = document.getElementById('writedomRatingValue');
+    const writershubRatingValue = document.getElementById('writershubRatingValue');
+    const overallRatingValue = document.getElementById('overallRatingValue');
     if (reviewsTrack) {
-        const reviews = [
-            { author: 'Sarah M.', initials: 'SM', role: 'Content Writer, 3 yrs', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#6366f1,#8b5cf6)', text: 'Short version: this bot works.' },
-            { author: 'James O.', initials: 'JO', role: 'Academic Writer, 4 yrs', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#06b6d4,#3b82f6)', text: 'Set up took minutes. Orders started coming in the same day.' },
-            { author: 'Amara N.', initials: 'AN', role: 'Freelance Writer', platform: 'Writedom Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#ec4899,#f97316)', text: 'The free trial sold me. I woke up to multiple bids already placed.' },
-            { author: 'David K.', initials: 'DK', role: 'Technical Writer, 5 yrs', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#10b981,#06b6d4)', text: 'Filters are clean and precise. I only bid where I can actually win.' },
-            { author: 'Faith W.', initials: 'FW', role: 'Full-time Freelancer', platform: 'Both Bots', rating: 5, avatar: 'linear-gradient(135deg,#f59e0b,#ef4444)', text: 'Running both bots gave me steady weekly income for the first time.' },
-            { author: 'Collins M.', initials: 'CM', role: 'Essay Writer', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#8b5cf6,#ec4899)', text: 'Background mode is perfect. I write while the bot handles the hunt.' },
-            { author: 'Rose A.', initials: 'RA', role: 'Beginner Writer', platform: 'WritersHub Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#3b82f6,#10b981)', text: 'Very easy to install. Support replied quickly and clearly.' },
-            { author: 'Tunde O.', initials: 'TO', role: 'Professional Writer', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#6366f1,#06b6d4)', text: 'Reliable for months. No random crashes, no weird misses.' },
-            { author: 'Lina P.', initials: 'LP', role: 'Blog Writer', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#22c55e,#14b8a6)', text: 'I literally tripled my daily bid coverage in week one.' },
-            { author: 'Brian C.', initials: 'BC', role: 'Copywriter', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#a855f7,#6366f1)', text: 'This thing is absurdly fast. Blink and the bid is already sent.' },
-            { author: 'Nora E.', initials: 'NE', role: 'Research Writer', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#0ea5e9,#2563eb)', text: 'My response time went from late to lightning-fast.' },
-            { author: 'Kevin T.', initials: 'KT', role: 'Business Writer', platform: 'Writedom Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#f97316,#dc2626)', text: 'Straight to the point: more bids, better clients.' },
-            { author: 'Maya R.', initials: 'MR', role: 'SEO Writer', platform: 'Both Bots', rating: 5, avatar: 'linear-gradient(135deg,#14b8a6,#3b82f6)', text: 'I used to manually refresh pages all day. Now I let the bots run while I focus on delivery, and my pipeline is fuller than it has ever been. Some weeks it feels like every good order somehow finds me first.' },
-            { author: 'Peter J.', initials: 'PJ', role: 'Ghostwriter', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#f43f5e,#8b5cf6)', text: 'Simple. Effective. Worth it.' },
-            { author: 'Grace L.', initials: 'GL', role: 'Article Writer', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#06b6d4,#0ea5e9)', text: 'I tested it for three days and got more qualified opportunities than I normally get in two weeks.' },
-            { author: 'Victor S.', initials: 'VS', role: 'Academic Specialist', platform: 'WritersHub Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#84cc16,#22c55e)', text: 'Good defaults and strong filtering. Saves real time daily.' },
-            { author: 'Nelly A.', initials: 'NA', role: 'Freelance Writer', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#e11d48,#f97316)', text: 'My dashboard exploded with accepted bids after I tuned filters.' },
-            { author: 'Owen D.', initials: 'OD', role: 'Technical Blogger', platform: 'Both Bots', rating: 5, avatar: 'linear-gradient(135deg,#4f46e5,#06b6d4)', text: 'Wild result: in one month I went from chasing orders manually to scheduling work two weeks ahead because bids were landing consistently. It felt exaggerated when I heard it from others, but now it is my normal workflow.' },
-            { author: 'Hannah Q.', initials: 'HQ', role: 'Proofreader & Writer', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#10b981,#0ea5e9)', text: 'Tiny setup, huge impact.' },
-            { author: 'Sam B.', initials: 'SB', role: 'Proposal Writer', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#7c3aed,#ec4899)', text: 'The speed advantage is real. I stopped missing high-value orders.' },
-            { author: 'Esther I.', initials: 'EI', role: 'Long-form Writer', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#059669,#22d3ee)', text: 'Before this, I was spending ridiculous hours refreshing tabs and still arriving late. After switching, I suddenly had time to improve my writing quality while the extension hunted opportunities nonstop. Revenue climbed, stress dropped, and my whole routine became calmer and more predictable.' },
-            { author: 'Mark U.', initials: 'MU', role: 'Content Strategist', platform: 'Both Bots', rating: 4.5, avatar: 'linear-gradient(135deg,#334155,#6366f1)', text: 'Predictable performance every day. Exactly what I needed.' },
-            { author: 'Ivy F.', initials: 'IF', role: 'Beginner Freelancer', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#f59e0b,#e11d48)', text: 'I was nervous about bots, but this one is straightforward and safe.' },
-            { author: 'Daniel Z.', initials: 'DZ', role: 'Professional Copywriter', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#1d4ed8,#9333ea)', text: 'Exaggerated but true: it felt like I hired a tireless assistant who never sleeps, never misses a listing, and never gets distracted. The consistency is unreal, especially during peak posting hours.' },
-            { author: 'Ruth G.', initials: 'RG', role: 'Essay Specialist', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#16a34a,#0ea5e9)', text: 'Five stars. Clean UI and strong results.' },
-            { author: 'Alex P.', initials: 'AP', role: 'Freelance Writer, 6 yrs', platform: 'Both Bots', rating: 5, avatar: 'linear-gradient(135deg,#06b6d4,#a855f7)', text: 'I expected a small lift. Instead, this became the backbone of my client acquisition workflow. If I could only keep one productivity tool, this would be it.' }
+        const localReviews = [
+            { author: 'Sarah', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#6366f1,#8b5cf6)', text: 'Short version: this bot works.', reviewDate: new Date('2025-01-14') },
+            { author: 'James', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#06b6d4,#3b82f6)', text: 'Set up took minutes. Orders started coming in the same day.', reviewDate: new Date('2025-02-03') },
+            { author: 'Amara', platform: 'Writedom Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#ec4899,#f97316)', text: 'The free trial sold me. I woke up to multiple bids already placed.', reviewDate: new Date('2025-02-16') },
+            { author: 'David', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#10b981,#06b6d4)', text: 'Filters are clean and precise. I only bid where I can actually win.', reviewDate: new Date('2025-03-01') },
+            { author: 'Faith', platform: 'Both Bots', rating: 5, avatar: 'linear-gradient(135deg,#f59e0b,#ef4444)', text: 'Running both bots gave me steady weekly income for the first time.', reviewDate: new Date('2025-03-18') },
+            { author: 'Collins', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#8b5cf6,#ec4899)', text: 'Background mode is perfect. I write while the bot handles the hunt.', reviewDate: new Date('2025-04-04') }
+        ];
+
+        const AVATAR_PALETTE = [
+            'linear-gradient(135deg,#6366f1,#8b5cf6)',
+            'linear-gradient(135deg,#06b6d4,#3b82f6)',
+            'linear-gradient(135deg,#ec4899,#f97316)',
+            'linear-gradient(135deg,#10b981,#06b6d4)'
         ];
 
         const starIcons = (rating) => {
@@ -137,20 +129,191 @@ document.addEventListener('DOMContentLoaded', function() {
             return stars;
         };
 
-        reviewsTrack.innerHTML = reviews.map(review => `
+        const getFirstName = (name) => {
+            const normalized = String(name || '').trim();
+            if (!normalized) return 'Writer';
+            return normalized.split(/\s+/)[0];
+        };
+
+        const getInitials = (name) => {
+            return getFirstName(name).charAt(0).toUpperCase() || 'W';
+        };
+
+        const formatReviewDate = (dateValue) => {
+            let date = null;
+            if (dateValue && typeof dateValue.toDate === 'function') {
+                date = dateValue.toDate();
+            } else if (dateValue instanceof Date) {
+                date = dateValue;
+            } else if (typeof dateValue === 'string' || typeof dateValue === 'number') {
+                date = new Date(dateValue);
+            }
+            if (!date || Number.isNaN(date.getTime())) return 'Date unavailable';
+            return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+        };
+
+        const safe = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        }[char]));
+
+        const cardHtml = (review) => `
             <div class="review-card">
                 <div class="review-stars">${starIcons(review.rating)}</div>
-                <p class="review-text">"${review.text}"</p>
+                <p class="review-text">${safe(review.text)}</p>
                 <div class="review-author">
-                    <div class="review-avatar" style="background: ${review.avatar};">${review.initials}</div>
+                    <div class="review-avatar" style="background: ${review.avatar};">${safe(review.initials)}</div>
                     <div class="review-author-info">
-                        <strong>${review.author}</strong>
-                        <span>${review.role}</span>
+                        <strong>${safe(review.author)}</strong>
+                        <span>${safe(review.reviewDate)}</span>
                     </div>
                 </div>
-                <div class="review-platform"><i class="fas fa-robot"></i> ${review.platform}</div>
+                <div class="review-platform"><i class="fas fa-robot"></i> ${safe(review.platform)}</div>
             </div>
-        `).join('');
+        `;
+
+        const renderReviews = (reviews) => {
+            // Duplicate cards for smooth marquee animation.
+            const duplicated = [...reviews, ...reviews];
+            reviewsTrack.innerHTML = duplicated.map(cardHtml).join('');
+        };
+
+        const averageRating = (reviews) => {
+            if (!reviews.length) return null;
+            const total = reviews.reduce((sum, review) => sum + (Number(review.rating) || 0), 0);
+            return total / reviews.length;
+        };
+
+        const formatAverage = (value) => {
+            if (value === null) return '--★';
+            return `${value.toFixed(1)}★`;
+        };
+
+        const updateAggregateRatings = (reviews) => {
+            if (!writedomRatingValue || !writershubRatingValue || !overallRatingValue) return;
+
+            const writedomReviews = reviews.filter(
+                (review) => review.platform === 'Writedom Bot' || review.platform === 'Both Bots'
+            );
+            const writershubReviews = reviews.filter(
+                (review) => review.platform === 'WritersHub Bot' || review.platform === 'Both Bots'
+            );
+            const overallReviews = reviews.filter((review) => Number(review.rating) > 0);
+
+            writedomRatingValue.textContent = formatAverage(averageRating(writedomReviews));
+            writershubRatingValue.textContent = formatAverage(averageRating(writershubReviews));
+            overallRatingValue.textContent = formatAverage(averageRating(overallReviews));
+        };
+
+        const normalizeFirebaseReview = (doc) => {
+            const data = doc.data();
+            const displayName = data.clientName || 'Anonymous Writer';
+            const initials = getInitials(displayName);
+            return {
+                author: getFirstName(displayName),
+                initials,
+                platform: data.platform || 'Writedom Bot',
+                rating: Number(data.rating) || 5,
+                avatar: AVATAR_PALETTE[Math.floor(Math.random() * AVATAR_PALETTE.length)],
+                text: data.text || '',
+                reviewDate: formatReviewDate(data.createdAt || data.reviewDate)
+            };
+        };
+
+        const getFirestore = () => {
+            const config = window.WRITE_SMART_FIREBASE_CONFIG;
+            const hasConfig = config && config.projectId && config.apiKey;
+            if (!hasConfig || typeof firebase === 'undefined') return null;
+            if (!firebase.apps.length) firebase.initializeApp(config);
+            return firebase.firestore();
+        };
+
+        const firestore = getFirestore();
+        const localReviewsPrepared = localReviews.map((review) => ({
+            ...review,
+            author: getFirstName(review.author),
+            initials: getInitials(review.author),
+            reviewDate: formatReviewDate(review.reviewDate)
+        }));
+        let activeReviews = [...localReviewsPrepared];
+
+        renderReviews(activeReviews);
+        updateAggregateRatings(activeReviews);
+
+        if (firestore) {
+            firestore
+                .collection('reviews')
+                .where('approved', '==', true)
+                .orderBy('createdAt', 'desc')
+                .limit(24)
+                .get()
+                .then((snapshot) => {
+                    if (!snapshot.empty) {
+                        const cloudReviews = snapshot.docs.map(normalizeFirebaseReview);
+                        const combinedReviews = [...cloudReviews, ...localReviewsPrepared];
+                        activeReviews = combinedReviews;
+                        renderReviews(activeReviews);
+                        updateAggregateRatings(activeReviews);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Could not load Firebase reviews:', error);
+                });
+        }
+
+        if (reviewForm) {
+            reviewForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                if (!firestore) {
+                    reviewFormStatus.textContent = 'Firebase is not configured yet. Add your config in index.html first.';
+                    reviewFormStatus.classList.add('is-error');
+                    return;
+                }
+
+                const formData = new FormData(reviewForm);
+                const clientName = getFirstName(formData.get('reviewName'));
+                const platform = String(formData.get('reviewPlatform') || '').trim();
+                const text = String(formData.get('reviewText') || '').trim();
+                const rating = Number(formData.get('reviewRating') || 5);
+
+                reviewFormStatus.textContent = 'Posting your review...';
+                reviewFormStatus.classList.remove('is-error');
+
+                try {
+                    await firestore.collection('reviews').add({
+                        clientName,
+                        platform,
+                        text,
+                        rating,
+                        postedBy: 'WriteSmart Bot',
+                        approved: true,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+
+                    const preview = {
+                        author: clientName,
+                        initials: getInitials(clientName),
+                        platform,
+                        rating,
+                        avatar: AVATAR_PALETTE[Math.floor(Math.random() * AVATAR_PALETTE.length)],
+                        text,
+                        reviewDate: formatReviewDate(new Date())
+                    };
+                    activeReviews = [preview, ...activeReviews];
+                    renderReviews(activeReviews);
+                    updateAggregateRatings(activeReviews);
+                    reviewForm.reset();
+                    reviewFormStatus.textContent = 'Review posted successfully.';
+                } catch (error) {
+                    console.error('Error posting review:', error);
+                    reviewFormStatus.textContent = 'Could not post review. Please try again.';
+                    reviewFormStatus.classList.add('is-error');
+                }
+            });
+        }
 
         reviewsTrack.addEventListener('mouseenter', () => {
             reviewsTrack.style.animationPlayState = 'paused';
