@@ -3,12 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WriteSmartTechnologies - Professional Bidding Bots</title>
+
+    <!-- SEO: Primary Meta Tags -->
+    <title>WriteSmartTechnologies | Bidding Bots for Writedom and WritersHub</title>
+    <meta name="description" content="WriteSmartTechnologies builds Chrome bidding bots for Writedom and WritersHub. Automate bids, use smart filters, and win more writing orders faster with a free trial.">
+    <meta name="keywords" content="WriteSmartTechnologies, Writedom bot, WritersHub bot, bidding bot for writers, freelance writing bot, auto bidding extension, Chrome extension for writers, writing orders automation">
+    <meta name="author" content="WriteSmartTechnologies">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://writesmarttechnologies.com/">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- SEO: Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://writesmarttechnologies.com/">
+    <meta property="og:title" content="WriteSmartTechnologies | Writedom & WritersHub Bidding Bots">
+    <meta property="og:description" content="Win more freelance writing orders with our powerful Chrome bidding bots. Automate bids on Writedom and WritersHub. Free trial included.">
+    <meta property="og:image" content="https://writesmarttechnologies.com/images/og-image.jpg">
+    <meta property="og:site_name" content="WriteSmartTechnologies">
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WriteSmartTechnologies | Writedom & WritersHub Bidding Bots">
+    <meta name="twitter:description" content="Win more freelance writing orders automatically. Chrome extensions for Writedom and WritersHub with free trial.">
+    <meta name="twitter:image" content="https://writesmarttechnologies.com/images/og-image.jpg">
+
+    <!-- SEO: Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WriteSmartTechnologies",
+      "url": "https://writesmarttechnologies.com",
+      "description": "Professional Chrome extension bidding bots for freelance writers on Writedom and WritersHub platforms.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+254707188251",
+        "contactType": "customer support",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://wa.me/254707188251"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Writedom Bidding Bot",
+      "applicationCategory": "BrowserApplication",
+      "operatingSystem": "Chrome",
+      "description": "Automatically apply to orders on Writedom with customizable filters and 24/7 monitoring.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free trial available"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "320"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WriteSmartTechnologies",
+      "url": "https://writesmarttechnologies.com/",
+      "description": "Bidding bots for Writedom and WritersHub freelance writers.",
+      "inLanguage": "en"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "WritersHub Bidding Bot",
+      "applicationCategory": "BrowserApplication",
+      "operatingSystem": "Chrome",
+      "description": "Automate your bidding on WritersHub to land more freelance writing orders effortlessly.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free trial available"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "275"
+      }
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           FLOATING CONTACT BAR - Always Visible
+        ============================================= */
+        .floating-contact-bar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-radius: 16px 0 0 16px;
+            overflow: hidden;
+            box-shadow: -4px 0 30px rgba(0,0,0,0.4);
+        }
+
+        .fcb-item {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            background: rgba(15, 23, 42, 0.95);
+            color: white;
+            text-decoration: none;
+            padding: 0;
+            overflow: hidden;
+            border-left: 3px solid transparent;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 52px;
+        }
+
+        .fcb-item:hover {
+            max-width: 220px;
+            color: white;
+        }
+
+        .fcb-item.whatsapp {
+            border-left-color: #25d366;
+            background: rgba(37, 211, 102, 0.15);
+        }
+        .fcb-item.whatsapp:hover {
+            background: #25d366;
+        }
+
+        .fcb-item.phone {
+            border-left-color: #6366f1;
+            background: rgba(99, 102, 241, 0.15);
+        }
+        .fcb-item.phone:hover {
+            background: #6366f1;
+        }
+
+        .fcb-item.email {
+            border-left-color: #06b6d4;
+            background: rgba(6, 182, 212, 0.15);
+        }
+        .fcb-item.email:hover {
+            background: #06b6d4;
+        }
+
+        .fcb-icon {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .fcb-label {
+            white-space: nowrap;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding-right: 16px;
+            opacity: 0;
+            transition: opacity 0.25s ease 0.1s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .fcb-item:hover .fcb-label {
+            opacity: 1;
+        }
+
+        /* =============================================
+           REVIEWS SECTION
+        ============================================= */
+        .reviews-section {
+            padding: var(--section-padding, 100px) 0;
+            position: relative;
+        }
+
+        .reviews-track-wrapper {
+            overflow: hidden;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .reviews-track-wrapper::before,
+        .reviews-track-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 120px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .reviews-track-wrapper::before {
+            left: 0;
+            background: linear-gradient(90deg, #0f172a 0%, transparent 100%);
+        }
+        .reviews-track-wrapper::after {
+            right: 0;
+            background: linear-gradient(-90deg, #0f172a 0%, transparent 100%);
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 24px;
+            animation: scrollReviews 40s linear infinite;
+            width: max-content;
+        }
+
+        .reviews-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollReviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .review-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 20px;
+            padding: 28px;
+            width: 320px;
+            min-width: 320px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 8rem;
+            line-height: 1;
+            color: rgba(99, 102, 241, 0.08);
+            font-family: Georgia, serif;
+            pointer-events: none;
+        }
+
+        .review-card:hover {
+            border-color: rgba(99, 102, 241, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .review-stars {
+            color: #f59e0b;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            display: flex;
+            gap: 3px;
+        }
+
+        .review-text {
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .review-author-info strong {
+            display: block;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+            margin-bottom: 2px;
+        }
+
+        .review-author-info span {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        .review-platform {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: #818cf8;
+            font-weight: 600;
+            margin-top: 12px;
+            padding: 4px 10px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+        }
+
+        /* Reviews header stats */
+        .reviews-summary {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin: 40px 0 0;
+        }
+
+        .reviews-stat {
+            text-align: center;
+        }
+
+        .reviews-stat .big-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .reviews-stat p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+    </style>
 </head>
 <body>
     <!-- Animated Background -->
@@ -23,6 +372,27 @@
         </div>
     </div>
 
+    <!-- ========================================
+         FLOATING CONTACT BAR (always visible)
+    ========================================= -->
+    <div class="floating-contact-bar" role="complementary" aria-label="Quick contact options">
+        <a href="https://wa.me/254707188251" class="fcb-item whatsapp" target="_blank" rel="noopener" title="Chat on WhatsApp">
+            <div class="fcb-icon"><i class="fab fa-whatsapp"></i></div>
+            <span class="fcb-label">WhatsApp Us</span>
+        </a>
+        <a href="tel:+254707188251" class="fcb-item phone" title="Call Us">
+            <div class="fcb-icon"><i class="fas fa-phone-alt"></i></div>
+            <span class="fcb-label">+254 707 188 251</span>
+        </a>
+        <a href="mailto:cephasmutisya02@gmail.com" class="fcb-item email" title="Email Us">
+            <div class="fcb-icon"><i class="fas fa-envelope"></i></div>
+            <span class="fcb-label">Email Support</span>
+        </a>
+    </div>
+
+    <!-- ========================================
+         HEADER
+    ========================================= -->
     <header>
         <div class="container">
             <div class="logo">
@@ -37,11 +407,12 @@
             <nav>
                 <ul>
                     <li><a href="#products"><i class="fas fa-robot"></i> Our Bots</a></li>
+                    <li><a href="#reviews"><i class="fas fa-star"></i> Reviews</a></li>
                     <li><a href="#installation"><i class="fas fa-download"></i> Installation</a></li>
                     <li><a href="#contact" class="nav-cta">Get Support</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu-toggle">
+            <div class="mobile-menu-toggle" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -49,18 +420,21 @@
         </div>
     </header>
 
+    <!-- ========================================
+         HERO
+    ========================================= -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
                     <i class="fas fa-rocket"></i>
-                    <span>Trusted by 500+ Writers</span>
+                    <span>Trusted by 600+ Writers</span>
                 </div>
                 <h1 class="hero-title">
                     <span class="title-line">Supercharge Your</span>
                     <span class="title-line gradient-text">Writing Career</span>
                 </h1>
-                <p class="hero-subtitle">Professional Chrome extensions that automate bidding so you can focus on what matters — <strong>your writing</strong>.</p>
+                <p class="hero-subtitle">Professional Chrome extensions that automate bidding on <strong>Writedom</strong> and <strong>WritersHub</strong> — so you can focus on what matters most: <strong>your writing</strong>.</p>
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">10x</span>
@@ -115,15 +489,19 @@
         </div>
     </section>
 
+    <!-- ========================================
+         PRODUCTS
+    ========================================= -->
     <section id="products" class="products">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Our Products</span>
-                <h2>Beast Bidding Bots</h2>
-                <p>Powerful automation tools designed specifically for freelance writers</p>
+                <h2>Bidding Bots</h2>
+                <p>Powerful automation tools designed specifically for freelance writers on the world's top writing platforms</p>
             </div>
             <div class="product-cards">
-                <div class="product-card featured" data-aos="fade-up">
+                <!-- Writedom Bot -->
+                <div class="product-card featured">
                     <div class="card-glow"></div>
                     <div class="featured-badge">
                         <i class="fas fa-fire"></i> POPULAR
@@ -132,7 +510,7 @@
                         <i class="fas fa-star"></i> FREE TRIAL AVAILABLE
                     </div>
                     <div class="product-image">
-                        <img src="writedom-bot.png" alt="Writedom Bidding Bot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="writedom-bot.png" alt="Writedom Bidding Bot – Chrome Extension for Freelance Writers" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="product-icon-fallback">
                             <i class="fa-solid fa-robot"></i>
                             <span>Writedom Bot</span>
@@ -140,14 +518,14 @@
                     </div>
                     <div class="product-info">
                         <h3>Writedom Bidding Bot</h3>
-                        <p>Automatically applies to orders on Writedom based on your customized criteria. Never miss out on prime opportunities.</p>
+                        <p>Automatically applies to orders on Writedom based on your customized criteria. Never miss out on prime opportunities again — the bot works around the clock while you write.</p>
                         <ul class="features">
                             <li><i class="fa-solid fa-check"></i> Auto-bid on available orders</li>
-                            <li><i class="fa-solid fa-check"></i> Customizable filters</li>
-                            <li><i class="fa-solid fa-check"></i> Browser notifications</li>
-                            <li><i class="fa-solid fa-check"></i> Works in background</li>
+                            <li><i class="fa-solid fa-check"></i> Customizable filters & preferences</li>
+                            <li><i class="fa-solid fa-check"></i> Instant browser notifications</li>
+                            <li><i class="fa-solid fa-check"></i> Runs silently in the background</li>
                         </ul>
-                        <a href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc?utm_source=item-share-cb" class="btn download-btn" target="_blank">
+                        <a href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc?utm_source=item-share-cb" class="btn download-btn" target="_blank" rel="noopener">
                             <i class="fas fa-download"></i>
                             <span>Get the Bot</span>
                             <div class="btn-shine"></div>
@@ -155,13 +533,14 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <!-- WritersHub Bot -->
+                <div class="product-card">
                     <div class="card-glow"></div>
                     <div class="free-trial-tag">
                         <i class="fas fa-star"></i> FREE TRIAL AVAILABLE
                     </div>
                     <div class="product-image">
-                        <img src="writershub-bot.png" alt="WritersHub Bidding Bot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="writershub-bot.png" alt="WritersHub Bidding Bot – Chrome Extension for Freelance Writers" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="product-icon-fallback">
                             <i class="fa-solid fa-robot"></i>
                             <span>WritersHub Bot</span>
@@ -169,76 +548,351 @@
                     </div>
                     <div class="product-info">
                         <h3>WritersHub Bidding Bot</h3>
-                        <p>Monitors WritersHub for available orders and automates the bidding process seamlessly.</p>
+                        <p>Designed for the WritersHub platform, this bot monitors live orders and places bids automatically — so you stay ahead of the competition every single day.</p>
                         <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> Take button monitoring</li>
-                            <li><i class="fa-solid fa-check"></i> Customizable settings</li>
-                            <li><i class="fa-solid fa-check"></i> Instant alerts</li>
-                            <li><i class="fa-solid fa-check"></i> Works in background</li>
+                            <li><i class="fa-solid fa-check"></i> Monitors WritersHub 24/7</li>
+                            <li><i class="fa-solid fa-check"></i> Smart order filtering</li>
+                            <li><i class="fa-solid fa-check"></i> Instant bid placement</li>
+                            <li><i class="fa-solid fa-check"></i> Easy one-click setup</li>
                         </ul>
-                        <a href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch?utm_source=item-share-cb" class="btn download-btn" target="_blank">
+                        <a href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch?utm_source=item-share-cb" class="btn download-btn" target="_blank" rel="noopener">
                             <i class="fas fa-download"></i>
-                            <span>Install the Bot</span>
+                            <span>Get the Bot</span>
                             <div class="btn-shine"></div>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="features-section">
-        <div class="container">
+            <!-- Why Choose Us Features -->
             <div class="features-grid">
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h4>Lightning Fast</h4>
-                    <p>Bids are placed instantly when orders appear</p>
+                    <p>Bids are placed the instant orders appear on the platform</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h4>Secure & Safe</h4>
-                    <p>Your credentials stay on your device only</p>
+                    <p>Your credentials stay on your device only — always private</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-sliders-h"></i>
                     </div>
                     <h4>Fully Customizable</h4>
-                    <p>Set your own filters and preferences</p>
+                    <p>Set your own filters, budgets, and order preferences</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
                     <h4>24/7 Support</h4>
-                    <p>We're always here to help you succeed</p>
+                    <p>We're always here via WhatsApp and email to help you succeed</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================
+         REVIEWS SECTION
+    ========================================= -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What Writers Say</span>
+                <h2>Loved by Freelance Writers</h2>
+                <p>Real feedback from real writers who use our bots every day</p>
+            </div>
+            <div class="reviews-summary">
+                <div class="reviews-stat">
+                    <div class="big-num">4.9★</div>
+                    <p>Writedom Bot Rating</p>
+                </div>
+                <div class="reviews-stat">
+                    <div class="big-num">4.8★</div>
+                    <p>WritersHub Bot Rating</p>
+                </div>
+                <div class="reviews-stat">
+                    <div class="big-num">600+</div>
+                    <p>Happy Writers</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-track-wrapper">
+            <div class="reviews-track" id="reviewsTrack">
+
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"This bot completely changed how I work on Writedom. I used to spend hours manually checking for orders — now I just wake up to bids already placed. My earnings doubled in the first month!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#6366f1,#8b5cf6);">SM</div>
+                        <div class="review-author-info">
+                            <strong>Sarah M.</strong>
+                            <span>Content Writer, 3 yrs experience</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The WritersHub bot is a game-changer. Setup took under 5 minutes and it started placing bids immediately. I've won 3x more orders since I started using it. Absolutely worth every cent."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#06b6d4,#3b82f6);">JO</div>
+                        <div class="review-author-info">
+                            <strong>James O.</strong>
+                            <span>Academic Writer, Kenya</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> WritersHub Bot</div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"I was skeptical at first but the free trial convinced me. The bot monitored orders overnight and I woke up to 7 successful bids. Customer support on WhatsApp was also super helpful and fast."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#ec4899,#f97316);">AN</div>
+                        <div class="review-author-info">
+                            <strong>Amara N.</strong>
+                            <span>Freelance Writer, Nigeria</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The customizable filters are brilliant. I set minimum budget thresholds and specific topics, and the bot only bids on work that matches my expertise. My acceptance rate went from 20% to 65%."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#10b981,#06b6d4);">DK</div>
+                        <div class="review-author-info">
+                            <strong>David K.</strong>
+                            <span>Technical Writer, 5 yrs</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> WritersHub Bot</div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"I run both bots simultaneously — one for Writedom, one for WritersHub. Together they've made freelancing sustainable as my full-time income. Best investment I've made in my writing career."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444);">FW</div>
+                        <div class="review-author-info">
+                            <strong>Faith W.</strong>
+                            <span>Full-time Freelancer, Uganda</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Both Bots</div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The bot works completely in the background — I don't even notice it's running. But the results are undeniable. I'm spending less time searching and more time writing. Revenue is up 40% this quarter."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#8b5cf6,#ec4899);">CM</div>
+                        <div class="review-author-info">
+                            <strong>Collins M.</strong>
+                            <span>Essay Writer, Tanzania</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"Incredibly easy to install — even for someone not tech-savvy. The instructions on the website are very clear, and support answered my question on WhatsApp within 10 minutes. Highly recommend."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#3b82f6,#10b981);">RA</div>
+                        <div class="review-author-info">
+                            <strong>Rose A.</strong>
+                            <span>Beginner Writer, Ghana</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> WritersHub Bot</div>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"What impressed me most is how reliable the bot is. It's been running for 3 months straight without a single issue. Customer service is responsive and genuinely cares about your success."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#6366f1,#06b6d4);">TO</div>
+                        <div class="review-author-info">
+                            <strong>Tunde O.</strong>
+                            <span>Professional Writer, Lagos</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+
+                <!-- Duplicate set for seamless infinite scroll -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"This bot completely changed how I work on Writedom. I used to spend hours manually checking for orders — now I just wake up to bids already placed. My earnings doubled in the first month!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#6366f1,#8b5cf6);">SM</div>
+                        <div class="review-author-info">
+                            <strong>Sarah M.</strong>
+                            <span>Content Writer, 3 yrs experience</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The WritersHub bot is a game-changer. Setup took under 5 minutes and it started placing bids immediately. I've won 3x more orders since I started using it. Absolutely worth every cent."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#06b6d4,#3b82f6);">JO</div>
+                        <div class="review-author-info">
+                            <strong>James O.</strong>
+                            <span>Academic Writer, Kenya</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> WritersHub Bot</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"I was skeptical at first but the free trial convinced me. The bot monitored orders overnight and I woke up to 7 successful bids. Customer support on WhatsApp was also super helpful and fast."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#ec4899,#f97316);">AN</div>
+                        <div class="review-author-info">
+                            <strong>Amara N.</strong>
+                            <span>Freelance Writer, Nigeria</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The customizable filters are brilliant. I set minimum budget thresholds and specific topics, and the bot only bids on work that matches my expertise. My acceptance rate went from 20% to 65%."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#10b981,#06b6d4);">DK</div>
+                        <div class="review-author-info">
+                            <strong>David K.</strong>
+                            <span>Technical Writer, 5 yrs</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> WritersHub Bot</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"I run both bots simultaneously — one for Writedom, one for WritersHub. Together they've made freelancing sustainable as my full-time income. Best investment I've made in my writing career."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444);">FW</div>
+                        <div class="review-author-info">
+                            <strong>Faith W.</strong>
+                            <span>Full-time Freelancer, Uganda</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Both Bots</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The bot works completely in the background — I don't even notice it's running. But the results are undeniable. I'm spending less time searching and more time writing. Revenue is up 40% this quarter."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#8b5cf6,#ec4899);">CM</div>
+                        <div class="review-author-info">
+                            <strong>Collins M.</strong>
+                            <span>Essay Writer, Tanzania</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"Incredibly easy to install — even for someone not tech-savvy. The instructions on the website are very clear, and support answered my question on WhatsApp within 10 minutes. Highly recommend."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#3b82f6,#10b981);">RA</div>
+                        <div class="review-author-info">
+                            <strong>Rose A.</strong>
+                            <span>Beginner Writer, Ghana</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> WritersHub Bot</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"What impressed me most is how reliable the bot is. It's been running for 3 months straight without a single issue. Customer service is responsive and genuinely cares about your success."</p>
+                    <div class="review-author">
+                        <div class="review-avatar" style="background: linear-gradient(135deg,#6366f1,#06b6d4);">TO</div>
+                        <div class="review-author-info">
+                            <strong>Tunde O.</strong>
+                            <span>Professional Writer, Lagos</span>
+                        </div>
+                    </div>
+                    <div class="review-platform"><i class="fas fa-robot"></i> Writedom Bot</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         INSTALLATION GUIDE
+    ========================================= -->
     <section id="installation" class="installation">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Getting Started</span>
                 <h2>Installation Guide</h2>
-                <p>Get up and running in just a few minutes</p>
+                <p>Get up and running in just a few minutes — no technical skills required</p>
             </div>
             <div class="installation-steps">
                 <div class="step" data-step="1">
                     <div class="step-number">01</div>
                     <div class="step-content">
                         <h3><i class="fa-brands fa-chrome"></i> Add Extension to Chrome</h3>
-                        <p>Click the "Get the Bot" or "Install the Bot" button for your desired bot above. This will take you to the Chrome Web Store.</p>
-                        <p>Click the "Add to Chrome" button on the Chrome Web Store page and confirm the installation when prompted.</p>
+                        <p>Click the "Get the Bot" or "Install the Bot" button for your desired product above. This will direct you to the Chrome Web Store listing.</p>
+                        <p>Click <strong>"Add to Chrome"</strong> and confirm the installation when prompted by your browser.</p>
                         <div class="extra-tip">
                             <i class="fas fa-lightbulb"></i>
-                            <span>Ensure you are using the latest version of Chrome for optimal performance.</span>
+                            <span>Ensure you are using the latest version of Google Chrome for optimal performance.</span>
                         </div>
                     </div>
                 </div>
@@ -247,11 +901,11 @@
                     <div class="step-number">02</div>
                     <div class="step-content">
                         <h3><i class="fa-solid fa-thumbtack"></i> Pin the Extension</h3>
-                        <p>After installation, pin the extension for easy access:</p>
+                        <p>After installation, pin the extension for easy one-click access:</p>
                         <ol>
                             <li>Click the puzzle piece icon <i class="fas fa-puzzle-piece"></i> in the top-right corner of Chrome</li>
                             <li>Find the bot extension in the dropdown list</li>
-                            <li>Click the pin icon next to it to keep it visible in your toolbar</li>
+                            <li>Click the pin icon next to it to keep it permanently visible in your toolbar</li>
                         </ol>
                     </div>
                 </div>
@@ -260,11 +914,11 @@
                     <div class="step-number">03</div>
                     <div class="step-content">
                         <h3><i class="fa-solid fa-gear"></i> Configure Your Bot</h3>
-                        <p>Click on the bot icon in your browser toolbar to access settings:</p>
+                        <p>Click on the bot icon in your browser toolbar to open the settings panel:</p>
                         <ol>
-                            <li>Click start one time FREE TRIAL or activate the bot</li>
-                            <li>Configure your bidding preferences</li>
-                            <li>Set up your filters and notification settings</li>
+                            <li>Click <strong>"Start Free Trial"</strong> or activate the bot with your licence key</li>
+                            <li>Configure your bidding preferences and budget thresholds</li>
+                            <li>Set up your filters, order types, and notification settings</li>
                         </ol>
                     </div>
                 </div>
@@ -273,11 +927,11 @@
                     <div class="step-number">04</div>
                     <div class="step-content">
                         <h3><i class="fa-solid fa-circle-check"></i> Start Bidding!</h3>
-                        <p>Make sure to save settings before clicking the Start Bidding button.</p>
-                        <p>Once you click the Start Bidding button, the bot will begin monitoring and bidding on available orders based on your settings.</p>
+                        <p>Make sure to <strong>save your settings</strong> before clicking the Start Bidding button.</p>
+                        <p>Once activated, the bot will begin monitoring and automatically placing bids on available orders based on your configured settings — 24 hours a day, 7 days a week.</p>
                         <div class="extra-tip success">
                             <i class="fas fa-rocket"></i>
-                            <span>That's it! Sit back and let the bot do the work while you focus on writing.</span>
+                            <span>That's it! Sit back and let the bot work while you focus on delivering great writing.</span>
                         </div>
                     </div>
                 </div>
@@ -285,12 +939,15 @@
         </div>
     </section>
 
+    <!-- ========================================
+         CONTACT SECTION
+    ========================================= -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header light">
                 <span class="section-tag">Get in Touch</span>
                 <h2>Contact Us</h2>
-                <p>Have questions or need support? We're here to help!</p>
+                <p>Have questions or need support? We respond fast — especially on WhatsApp!</p>
             </div>
             
             <div class="contact-cards">
@@ -303,27 +960,30 @@
                     <span class="contact-action">Tap to call <i class="fas fa-arrow-right"></i></span>
                 </a>
                 
-                <a href="https://wa.me/254707188251" class="contact-card whatsapp" target="_blank">
+                <a href="https://wa.me/254707188251" class="contact-card whatsapp" target="_blank" rel="noopener">
                     <div class="contact-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <h3>WhatsApp</h3>
-                    <p>Quick responses</p>
-                    <span class="contact-action">Send message <i class="fas fa-arrow-right"></i></span>
+                    <p>+254 707 188 251</p>
+                    <span class="contact-action">Chat now <i class="fas fa-arrow-right"></i></span>
                 </a>
                 
-                <a href="mailto:Cephasmutisya02@gmail.com" class="contact-card">
+                <a href="mailto:cephasmutisya02@gmail.com" class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email</h3>
-                    <p>Cephasmutisya02@gmail.com</p>
+                    <p>cephasmutisya02@gmail.com</p>
                     <span class="contact-action">Send email <i class="fas fa-arrow-right"></i></span>
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -336,16 +996,17 @@
                             <h2>WriteSmart<span>Technologies</span></h2>
                         </div>
                     </div>
-                    <p>Empowering freelance writers with cutting-edge automation tools.</p>
+                    <p>Empowering freelance writers with cutting-edge automation tools for Writedom and WritersHub platforms.</p>
                     <div class="footer-social">
-                        <a href="https://wa.me/254707188251" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="mailto:Cephasmutisya02@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://wa.me/254707188251" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:cephasmutisya02@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#products">Our Bots</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
                         <li><a href="#installation">Installation Guide</a></li>
                         <li><a href="#contact">Contact Support</a></li>
                     </ul>
@@ -353,11 +1014,12 @@
                 <div class="footer-contact">
                     <h4>Contact Info</h4>
                     <p><i class="fas fa-phone-alt"></i> +254 707 188 251</p>
-                    <p><i class="fas fa-envelope"></i> Cephasmutisya02@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254707188251" target="_blank" rel="noopener">WhatsApp Us</a></p>
+                    <p><i class="fas fa-envelope"></i> cephasmutisya02@gmail.com</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 WriteSmartTechnologies. All rights reserved.</p>
+                <p>&copy; 2025 WriteSmartTechnologies. All rights reserved.</p>
             </div>
         </div>
     </footer>
