@@ -107,16 +107,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const localReviews = [
             { author: 'Sarah', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#6366f1,#8b5cf6)', text: 'Short version: this bot works.', reviewDate: new Date('2025-01-14') },
             { author: 'James', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#06b6d4,#3b82f6)', text: 'Set up took minutes. Orders started coming in the same day.', reviewDate: new Date('2025-02-03') },
-            { author: 'Amara', platform: 'Writedom Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#ec4899,#f97316)', text: 'The free trial sold me. I woke up to multiple bids already placed.', reviewDate: new Date('2025-02-16') },
+            { author: 'Amara', platform: 'Writedom Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#c9a227,#f97316)', text: 'The results were immediate. I woke up to multiple bids already placed.', reviewDate: new Date('2025-02-16') },
             { author: 'David', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#10b981,#06b6d4)', text: 'Filters are clean and precise. I only bid where I can actually win.', reviewDate: new Date('2025-03-01') },
             { author: 'Faith', platform: 'Both Bots', rating: 5, avatar: 'linear-gradient(135deg,#f59e0b,#ef4444)', text: 'Running both bots gave me steady weekly income for the first time.', reviewDate: new Date('2025-03-18') },
-            { author: 'Collins', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#8b5cf6,#ec4899)', text: 'Background mode is perfect. I write while the bot handles the hunt.', reviewDate: new Date('2025-04-04') }
+            { author: 'Collins', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#8b5cf6,#c9a227)', text: 'Background mode is perfect. I write while the bot handles the hunt.', reviewDate: new Date('2025-04-04') }
         ];
 
         const AVATAR_PALETTE = [
             'linear-gradient(135deg,#6366f1,#8b5cf6)',
             'linear-gradient(135deg,#06b6d4,#3b82f6)',
-            'linear-gradient(135deg,#ec4899,#f97316)',
+            'linear-gradient(135deg,#c9a227,#f97316)',
             'linear-gradient(135deg,#10b981,#06b6d4)'
         ];
 
@@ -243,32 +243,53 @@ document.addEventListener('DOMContentLoaded', function() {
         renderReviews(activeReviews);
         updateAggregateRatings(activeReviews);
 
+        // Track a pending preview so we can drop it once the live snapshot confirms the real doc.
+        let pendingPreview = null;
+
+        const mergeAndRender = (cloudReviews) => {
+            // If we still have a pending preview and the cloud hasn't returned it yet, keep it at
+            // the front so the submitter never sees their review disappear between saves.
+            const base = [...cloudReviews, ...localReviewsPrepared];
+            if (pendingPreview) {
+                const alreadyIn = cloudReviews.some(
+                    (r) => r.author === pendingPreview.author && r.text === pendingPreview.text
+                );
+                activeReviews = alreadyIn ? base : [pendingPreview, ...base];
+                if (alreadyIn) pendingPreview = null;
+            } else {
+                activeReviews = base;
+            }
+            renderReviews(activeReviews);
+            updateAggregateRatings(activeReviews);
+        };
+
         if (firestore) {
-            firestore
-                .collection('reviews')
-                .where('approved', '==', true)
-                .orderBy('createdAt', 'desc')
-                .limit(24)
-                .get()
-                .then((snapshot) => {
-                    if (!snapshot.empty) {
-                        const cloudReviews = snapshot.docs.map(normalizeFirebaseReview);
-                        const combinedReviews = [...cloudReviews, ...localReviewsPrepared];
-                        activeReviews = combinedReviews;
-                        renderReviews(activeReviews);
-                        updateAggregateRatings(activeReviews);
-                    }
-                })
-                .catch((error) => {
+            // Use onSnapshot instead of .get() so every user's carousel updates in real-time
+            // whenever anyone posts a review — no page refresh needed.
+            const attachReviewListener = (withOrder) => {
+                let query = firestore
+                    .collection('reviews')
+                    .where('approved', '==', true)
+                    .limit(30);
+                if (withOrder) query = query.orderBy('createdAt', 'desc');
+
+                query.onSnapshot((snapshot) => {
+                    const cloudReviews = snapshot.docs.map(normalizeFirebaseReview);
+                    mergeAndRender(cloudReviews);
+                }, (error) => {
                     console.error('Could not load Firebase reviews:', error);
+                    // Firestore composite index may be missing — retry without orderBy.
+                    if (withOrder) attachReviewListener(false);
                 });
+            };
+            attachReviewListener(true);
         }
 
         if (reviewForm) {
             reviewForm.addEventListener('submit', async (event) => {
                 event.preventDefault();
                 if (!firestore) {
-                    reviewFormStatus.textContent = 'Firebase is not configured yet. Add your config in index.html first.';
+                    reviewFormStatus.textContent = 'Review service unavailable. Please contact us via WhatsApp.';
                     reviewFormStatus.classList.add('is-error');
                     return;
                 }
@@ -279,8 +300,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 const text = String(formData.get('reviewText') || '').trim();
                 const rating = Number(formData.get('reviewRating') || 5);
 
-                reviewFormStatus.textContent = 'Posting your review...';
+                if (!clientName || !platform || !text || !rating) {
+                    reviewFormStatus.textContent = 'Please fill in all fields before posting.';
+                    reviewFormStatus.classList.add('is-error');
+                    return;
+                }
+
+                reviewFormStatus.textContent = 'Posting your review…';
                 reviewFormStatus.classList.remove('is-error');
+
+                // Show the review in the carousel immediately so the submitter doesn't wait.
+                pendingPreview = {
+                    author: clientName,
+                    initials: getInitials(clientName),
+                    platform,
+                    rating,
+                    avatar: AVATAR_PALETTE[Math.floor(Math.random() * AVATAR_PALETTE.length)],
+                    text,
+                    reviewDate: formatReviewDate(new Date())
+                };
+                activeReviews = [pendingPreview, ...activeReviews];
+                renderReviews(activeReviews);
+                updateAggregateRatings(activeReviews);
 
                 try {
                     await firestore.collection('reviews').add({
@@ -288,28 +329,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         platform,
                         text,
                         rating,
-                        postedBy: 'WriteSmart Bot',
                         approved: true,
                         createdAt: firebase.firestore.FieldValue.serverTimestamp()
                     });
-
-                    const preview = {
-                        author: clientName,
-                        initials: getInitials(clientName),
-                        platform,
-                        rating,
-                        avatar: AVATAR_PALETTE[Math.floor(Math.random() * AVATAR_PALETTE.length)],
-                        text,
-                        reviewDate: formatReviewDate(new Date())
-                    };
-                    activeReviews = [preview, ...activeReviews];
-                    renderReviews(activeReviews);
-                    updateAggregateRatings(activeReviews);
                     reviewForm.reset();
-                    reviewFormStatus.textContent = 'Review posted successfully.';
+                    reviewFormStatus.textContent = 'Review posted! It is now live in the carousel.';
+                    // onSnapshot will fire and replace the pendingPreview with the real Firestore doc.
                 } catch (error) {
                     console.error('Error posting review:', error);
-                    reviewFormStatus.textContent = 'Could not post review. Please try again.';
+                    if (pendingPreview) {
+                        activeReviews = activeReviews.filter((r) => r !== pendingPreview);
+                        pendingPreview = null;
+                        renderReviews(activeReviews);
+                    }
+                    reviewFormStatus.textContent = 'Could not post review. Please try again or contact us on WhatsApp.';
                     reviewFormStatus.classList.add('is-error');
                 }
             });
