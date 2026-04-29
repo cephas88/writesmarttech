@@ -336,13 +336,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     reviewFormStatus.textContent = 'Review posted! It is now live in the carousel.';
                     // onSnapshot will fire and replace the pendingPreview with the real Firestore doc.
                 } catch (error) {
-                    console.error('Error posting review:', error);
+                    console.error('[WriteSmart] Review post failed — code:', error.code, '| message:', error.message);
                     if (pendingPreview) {
                         activeReviews = activeReviews.filter((r) => r !== pendingPreview);
                         pendingPreview = null;
                         renderReviews(activeReviews);
                     }
-                    reviewFormStatus.textContent = 'Could not post review. Please try again or contact us on WhatsApp.';
+                    const msg = error.code === 'permission-denied'
+                        ? 'Database permissions are blocking submissions. Update your Firestore rules (see firestore.rules).'
+                        : `Could not post review (${error.code || 'unknown'}). Please try again or contact us on WhatsApp.`;
+                    reviewFormStatus.textContent = msg;
                     reviewFormStatus.classList.add('is-error');
                 }
             });
