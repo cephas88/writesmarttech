@@ -1,86 +1,32 @@
-# WriteSmartTechnologies Website
+# WriteSmartTechnologies
 
-A professional website showcasing Writedom Bidding Bot and WritersHub Bidding Bot Chrome extensions.
+Marketing and distribution site for two Chrome extensions (Writedom Bot and WritersHub Bot). Built with vanilla HTML, CSS, and JavaScript, with a Firebase/Firestore backend powering a live, genuine customer-review system.
 
-## Overview
+🔗 **Live:** https://writesmarttechnologies.com/
 
-This website is designed to present and distribute Chrome extension bots for freelance writers. It features a modern, responsive design with detailed installation instructions for the extensions.
+## Features
+- Responsive single-page site with product details, installation guide, and FAQ
+- **Genuine reviews only** — reviews load live from Firestore as real customers submit them, update in real time via `onSnapshot`, and show an empty state until the first real review arrives. No seeded or template reviews.
+- Aggregate ratings computed from real reviews
+- SEO-ready: sitemap, robots.txt, and valid JSON-LD structured data
 
-## Contents
+## Tech Stack
+HTML5 · CSS3 · JavaScript (ES6+) · Firebase / Firestore · Netlify
 
-- `index.html` - Main HTML structure
-- `styles.css` - CSS styling
-- `script.js` - JavaScript functionality
-- `images/` - Directory containing website images (needs to be created)
-- `downloads/` - Directory for extension ZIP files (needs to be created)
+## Reviews Setup (Firestore)
+Reviews require a Firebase project. Config lives in `index.html` (`window.WRITE_SMART_FIREBASE_CONFIG`).
+1. Create a Firebase project and enable Firestore.
+2. Deploy the security rules: `firebase deploy --only firestore:rules`
+3. Reviews are stored in the `reviews` collection; the rules validate name, text, platform, and rating on submit.
 
-## Setup Instructions
+## Run Locally
+```bash
+git clone https://github.com/cephas88/-writesmarttech.git
+cd -writesmarttech
+python3 -m http.server 8000   # then open http://localhost:8000
+```
+Note: reviews load only when the Firebase config is present and online; locally you'll see the empty state.
 
-1. **Create required directories:**
-   ```
-   mkdir -p images downloads
-   ```
-
-2. **Add images:**
-   You'll need to add the following images to the `images` folder:
-   - `hero-bg.jpg` - Background image for the hero section
-   - `extract.jpg` - Screenshot showing how to extract ZIP files
-   - `chrome-extensions.jpg` - Screenshot of Chrome extensions page
-   - `developer-mode.jpg` - Screenshot showing developer mode toggle
-   - `load-unpacked.jpg` - Screenshot showing load unpacked button
-   - `pin-extension.jpg` - Screenshot showing how to pin extensions
-
-3. **Prepare extension ZIP files:**
-   - Create ZIP files of your Chrome extensions
-   - Place them in the `downloads` folder:
-     - `writedom-bidding-bot.zip`
-     - `writershub-bidding-bot.zip`
-
-## Running Locally
-
-You can run this website locally using any web server. For a simple option:
-
-1. Using Python:
-   ```
-   python -m http.server
-   ```
-   Then open `http://localhost:8000` in your browser.
-
-2. Using Node.js (with http-server):
-   ```
-   npx http-server
-   ```
-   Then open `http://localhost:8080` in your browser.
-
-## Deployment
-
-To deploy this website to a hosting service:
-
-1. **Shared Hosting:**
-   - Upload all files to your web hosting via FTP or their control panel
-   - Ensure file permissions are set correctly
-
-2. **GitHub Pages:**
-   - Create a GitHub repository
-   - Push your website files to the repository
-   - Enable GitHub Pages in the repository settings
-
-3. **Netlify/Vercel:**
-   - Connect your GitHub repository to Netlify or Vercel
-   - Configure build settings if needed
-   - Deploy automatically from your Git repository
-
-## Customization
-
-- Update the website content in `index.html`
-- Modify colors and styling in `styles.css`
-- Add more functionality in `script.js`
-- Replace placeholder images with your own screenshots and images
-
-## Support
-
-For any questions or assistance with this website, please contact support@writesmarttechnologies.com (replace with your actual contact email).
-
-## License
-
-All rights reserved. This website and its content are proprietary and may not be reproduced without permission. 
+## Author
+**Cephas Nyamai Mutisya** — Software Developer
+Portfolio: https://cephasmutisyaportfolio.netlify.app/ · GitHub: https://github.com/cephas88

@@ -1726,3 +1726,18 @@ footer {
     background: var(--primary);
     color: var(--white);
 }
+
+/* Genuine-reviews empty state */
+.review-card--empty {
+    text-align: center;
+    opacity: 0.9;
+    margin: 0 auto;
+    max-width: 420px;
+}
+.review-card--empty .review-stars {
+    justify-content: center;
+    color: #c9a227;
+}
+.review-card--empty .review-platform {
+    justify-content: center;
+}

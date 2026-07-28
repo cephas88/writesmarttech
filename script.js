@@ -104,14 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const writershubRatingValue = document.getElementById('writershubRatingValue');
     const overallRatingValue = document.getElementById('overallRatingValue');
     if (reviewsTrack) {
-        const localReviews = [
-            { author: 'Sarah', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#6366f1,#8b5cf6)', text: 'Short version: this bot works.', reviewDate: new Date('2025-01-14') },
-            { author: 'James', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#06b6d4,#3b82f6)', text: 'Set up took minutes. Orders started coming in the same day.', reviewDate: new Date('2025-02-03') },
-            { author: 'Amara', platform: 'Writedom Bot', rating: 4.5, avatar: 'linear-gradient(135deg,#c9a227,#f97316)', text: 'The results were immediate. I woke up to multiple bids already placed.', reviewDate: new Date('2025-02-16') },
-            { author: 'David', platform: 'WritersHub Bot', rating: 5, avatar: 'linear-gradient(135deg,#10b981,#06b6d4)', text: 'Filters are clean and precise. I only bid where I can actually win.', reviewDate: new Date('2025-03-01') },
-            { author: 'Faith', platform: 'Both Bots', rating: 5, avatar: 'linear-gradient(135deg,#f59e0b,#ef4444)', text: 'Running both bots gave me steady weekly income for the first time.', reviewDate: new Date('2025-03-18') },
-            { author: 'Collins', platform: 'Writedom Bot', rating: 5, avatar: 'linear-gradient(135deg,#8b5cf6,#c9a227)', text: 'Background mode is perfect. I write while the bot handles the hunt.', reviewDate: new Date('2025-04-04') }
-        ];
+        // Reviews are genuine only: they load live from Firestore as real clients submit them.
+        // No seeded or template reviews. Until real reviews exist, an empty state is shown.
+        const localReviews = [];
 
         const AVATAR_PALETTE = [
             'linear-gradient(135deg,#6366f1,#8b5cf6)',
@@ -176,7 +171,27 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         const renderReviews = (reviews) => {
-            // Duplicate cards for smooth marquee animation.
+            // Genuine empty state: no reviews yet.
+            if (!reviews.length) {
+                reviewsTrack.style.animation = 'none';
+                reviewsTrack.innerHTML = `
+                    <div class="review-card review-card--empty">
+                        <div class="review-stars"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+                        <p class="review-text">No reviews yet — be the first to share your experience! Use the form below to leave a genuine review.</p>
+                        <div class="review-platform"><i class="fas fa-pen"></i> Your review appears here instantly</div>
+                    </div>
+                `;
+                return;
+            }
+            // With only one real review the marquee has nothing to scroll through smoothly,
+            // so pause the animation and show it statically until more come in.
+            if (reviews.length === 1) {
+                reviewsTrack.style.animation = 'none';
+                reviewsTrack.innerHTML = cardHtml(reviews[0]);
+                return;
+            }
+            // Duplicate cards for smooth marquee animation once there are enough real reviews.
+            reviewsTrack.style.animation = '';
             const duplicated = [...reviews, ...reviews];
             reviewsTrack.innerHTML = duplicated.map(cardHtml).join('');
         };
