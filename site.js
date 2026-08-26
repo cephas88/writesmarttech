@@ -57,7 +57,7 @@ if (form) {
       return;
     }
     err.classList.add("hidden");
-    const subject = "WriteSmart Desk — " + pick(val("workType"), val("workOther")) + " — " + pick(val("country"), val("countryOther"));
+    const subject = "WriteSmartTech Desk — " + pick(val("workType"), val("workOther")) + " — " + pick(val("country"), val("countryOther"));
     const body = compile();
     const params = new URLSearchParams({ view: "cm", fs: "1", tf: "1", to: EMAIL, su: subject, body: body.length > 1600 ? body.slice(0, 1600) + "\n\n[Continue in this draft.]" : body });
     const gmail = "https://mail.google.com/mail/u/0/?" + params.toString();
