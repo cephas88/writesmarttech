@@ -58,9 +58,20 @@ if (form) {
     }
     err.classList.add("hidden");
     const subject = "WriteSmart Desk — " + pick(val("workType"), val("workOther")) + " — " + pick(val("country"), val("countryOther"));
-    window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(compile());
+    const body = compile();
+    const params = new URLSearchParams({ view: "cm", fs: "1", tf: "1", to: EMAIL, su: subject, body: body.length > 1600 ? body.slice(0, 1600) + "\n\n[Continue in this draft.]" : body });
+    const gmail = "https://mail.google.com/mail/u/0/?" + params.toString();
+    const mail = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(body).catch(function () {});
+    if (mobile) { window.location.href = mail; }
+    else {
+      const tab = window.open("about:blank", "_blank");
+      if (tab) { tab.opener = null; tab.location.replace(gmail); }
+      else { window.location.assign(gmail); }
+    }
     const st = document.getElementById("brief-status");
-    st.textContent = "If a draft did not open, write to " + EMAIL + " and attach files there.";
+    st.innerHTML = "Gmail should open in a new tab. If it did not, <a class=\"font-medium text-steel underline\" href=\"" + gmail + "\" target=\"_blank\" rel=\"noreferrer\">open the draft here</a> or write to " + EMAIL + ".";
     st.classList.remove("hidden");
   });
 }
