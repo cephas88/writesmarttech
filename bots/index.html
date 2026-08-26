@@ -4,67 +4,77 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Writedom &amp; WritersHub Bidding Bots | WriteSmart</title>
-  <meta name="description" content="Chrome extensions that auto-bid on Writedom and WritersHub." />
-  <meta name="theme-color" content="#14181F" />
+  <meta name="description" content="Chrome extensions that auto-bid on Writedom and WritersHub. For freelance writers in every country. WhatsApp licences." />
+  <meta name="theme-color" content="#06141F" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" />
 </head>
-<body class="bg-ink font-sans text-paper">
+<body class="bg-navy font-sans text-paper">
   <div class="page-shell page-shell-bots">
-    <header class="sticky top-0 z-40 border-b backdrop-blur-sm border-white/10 bg-ink/95">
+    <header class="sticky top-0 z-40 border-b backdrop-blur-sm border-glow/20 bg-navy/95">
     <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
       <a href="/bots/" class="group flex items-center gap-3 no-underline text-paper">
     <span class="flex h-8 w-8 items-center justify-center rounded-md bg-paper text-ink">
       <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M13 3 5.8 13.4h5.1L10.2 21 18.2 10.2h-5.2L13 3Z" fill="currentColor"/></svg>
     </span>
     <span class="leading-none"><span class="font-serif text-xl tracking-tight">WriteSmart</span>
-    <span class="mt-0.5 block text-[11px] font-medium tracking-wide text-rule">Bidding bots</span></span>
+    <span class="mt-0.5 block text-[11px] font-medium tracking-wide text-glow">Bidding bots</span></span>
   </a>
-      <nav class="hidden items-center gap-7 md:flex"><a href="/bots/" class="text-sm font-medium text-paper/70 hover:text-paper">Products</a><a href="/bots/how/" class="text-sm font-medium text-paper/70 hover:text-paper">Setup</a><a href="/bots/faq/" class="text-sm font-medium text-paper/70 hover:text-paper">FAQ</a></nav>
-      <div class="hidden md:block"><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-steel text-steel-fg hover:bg-ink bg-paper text-ink hover:bg-paper-2" href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc" target="_blank" rel="noreferrer">Get Writedom</a></div>
+      <nav class="hidden items-center gap-7 md:flex"><a href="/bots/" class="text-sm font-medium text-mist hover:text-paper">Products</a><a href="/bots/how/" class="text-sm font-medium text-mist hover:text-paper">Setup</a><a href="/bots/faq/" class="text-sm font-medium text-mist hover:text-paper">FAQ</a></nav>
+      <div class="hidden md:block"><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-wa text-wa-fg" href="https://wa.me/254707188251" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 1.84.7 2.5.59.38-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg> WhatsApp</a></div>
       <button type="button" id="menu-btn" class="inline-flex h-11 w-11 items-center justify-center rounded-md md:hidden text-paper" aria-label="Open menu">☰</button>
     </div>
-    <div id="mobile-nav" class="hidden border-t px-4 py-4 md:hidden border-white/10 bg-ink">
-      <nav class="flex flex-col gap-1"><a href="/bots/" class="flex min-h-11 items-center text-base font-medium text-paper">Products</a><a href="/bots/how/" class="flex min-h-11 items-center text-base font-medium text-paper">Setup</a><a href="/bots/faq/" class="flex min-h-11 items-center text-base font-medium text-paper">FAQ</a><div class="mt-2"><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-steel text-steel-fg hover:bg-ink bg-paper text-ink hover:bg-paper-2" href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc" target="_blank" rel="noreferrer">Get Writedom</a></div></nav>
+    <div id="mobile-nav" class="hidden border-t px-4 py-4 md:hidden border-glow/20 bg-navy">
+      <nav class="flex flex-col gap-1"><a href="/bots/" class="flex min-h-11 items-center text-base font-medium text-paper">Products</a><a href="/bots/how/" class="flex min-h-11 items-center text-base font-medium text-paper">Setup</a><a href="/bots/faq/" class="flex min-h-11 items-center text-base font-medium text-paper">FAQ</a><div class="mt-2"><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-wa text-wa-fg" href="https://wa.me/254707188251" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 1.84.7 2.5.59.38-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg> WhatsApp</a></div></nav>
     </div>
   </header>
-    <main><section class="border-b border-white/10"><div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
-    <p class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-rule"><span class="live-dot" aria-hidden="true"></span> Live on Chrome</p>
-    <h1 class="mt-6 max-w-3xl font-serif text-5xl leading-[0.92] text-paper sm:text-7xl lg:text-8xl">The board<span class="mt-2 block italic text-rule">bids itself.</span></h1>
-    <p class="mt-6 max-w-lg text-base text-paper/75">Chrome extensions for Writedom and WritersHub. You write. The bot stands in line. Trusted by 600+ writers.</p>
+    <main><section class="border-b border-glow/20"><div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
+    <p class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-glow"><span class="live-dot" aria-hidden="true"></span> Live on Chrome · writers worldwide</p>
+    <h1 class="mt-6 max-w-3xl font-serif text-5xl leading-[0.92] text-paper sm:text-7xl lg:text-8xl">The board<span class="mt-2 block italic text-glow">bids itself.</span></h1>
+    <p class="mt-6 max-w-lg text-base text-mist sm:text-lg">Chrome extensions for Writedom and WritersHub. You write. The bot stands in line. Works from any country. Trusted by 600+ writers.</p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-wa text-wa-fg h-12 px-6" href="https://wa.me/254707188251" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 1.84.7 2.5.59.38-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg> WhatsApp +254 707 188 251</a>
+      <a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-steel text-steel-fg hover:bg-ink h-12 px-6 bg-paper text-navy hover:bg-mist" href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc">Get Writedom</a>
+    </div>
     </div></section>
-    <section class="border-b border-white/10"><div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-3">
-      <div><p class="font-serif text-6xl leading-none text-rule">600+</p><p class="mt-3 text-sm text-paper/70">Writers running the bots</p></div>
-      <div><p class="font-serif text-6xl leading-none text-rule">24/7</p><p class="mt-3 text-sm text-paper/70">Monitoring while Chrome is open</p></div>
-      <div><p class="font-serif text-6xl leading-none text-rule">2</p><p class="mt-3 text-sm text-paper/70">Boards: Writedom and WritersHub</p></div>
+    <section class="border-b border-glow/20"><div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-3">
+      <div><p class="font-serif text-6xl leading-none text-glow">600+</p><p class="mt-3 text-sm text-mist">Writers running the bots</p></div>
+      <div><p class="font-serif text-6xl leading-none text-glow">24/7</p><p class="mt-3 text-sm text-mist">Monitoring while Chrome is open</p></div>
+      <div><p class="font-serif text-6xl leading-none text-glow">2</p><p class="mt-3 text-sm text-mist">Boards: Writedom and WritersHub</p></div>
     </div></section>
     <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6"><div class="grid gap-6 lg:grid-cols-2">
-      <article class="rounded-xl bg-white/5 p-8 shadow-[0_0_0_1px_rgba(243,238,228,0.12)]"><p class="text-xs uppercase tracking-[0.16em] text-rule">Popular</p><h2 class="mt-2 font-serif text-3xl sm:text-4xl">Writedom Bidding Bot</h2><p class="mt-3 text-sm text-paper/75">Watches Writedom and bids when an order matches your filters. You write. The bot stands in line.</p><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-steel text-steel-fg hover:bg-ink mt-8 bg-paper text-ink hover:bg-paper-2" href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc">Get it on Chrome</a></article>
-      <article class="rounded-xl bg-white/5 p-8 shadow-[0_0_0_1px_rgba(243,238,228,0.12)]"><h2 class="mt-2 font-serif text-3xl sm:text-4xl">WritersHub Bidding Bot</h2><p class="mt-3 text-sm text-paper/75">Live monitoring and instant bids for WritersHub so you are not refreshing a board all afternoon.</p><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-steel text-steel-fg hover:bg-ink mt-8 bg-paper text-ink hover:bg-paper-2" href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch">Get it on Chrome</a></article>
-    </div></section></main>
-    <footer class="border-t border-white/10 bg-ink text-paper">
+      <article class="bots-card rounded-xl p-8"><p class="text-xs uppercase tracking-[0.16em] text-glow">Popular</p><h2 class="mt-2 font-serif text-3xl sm:text-4xl">Writedom Bidding Bot</h2><p class="mt-3 text-sm text-mist">Watches Writedom and bids when an order matches your filters. You write. The bot stands in line.</p><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-steel text-steel-fg hover:bg-ink mt-8 bg-paper text-navy hover:bg-mist" href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc">Get it on Chrome</a></article>
+      <article class="bots-card rounded-xl p-8"><h2 class="mt-2 font-serif text-3xl sm:text-4xl">WritersHub Bidding Bot</h2><p class="mt-3 text-sm text-mist">Live monitoring and instant bids for WritersHub so you are not refreshing a board all afternoon.</p><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 h-11 px-5 bg-steel text-steel-fg hover:bg-ink mt-8 bg-paper text-navy hover:bg-mist" href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch">Get it on Chrome</a></article>
+    </div>
+    <p class="mt-12 max-w-xl text-sm leading-relaxed text-mist">Licence from any country: <a class="font-medium text-wa underline" href="https://wa.me/254707188251">+254 707 188 251</a> · <a class="text-paper underline" href="mailto:cephasmutisya02@gmail.com">cephasmutisya02@gmail.com</a></p>
+    </section></main>
+    <footer class="border-t border-glow/20 bg-navy text-paper">
       <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div><a href="/bots/" class="group flex items-center gap-3 no-underline text-paper">
     <span class="flex h-8 w-8 items-center justify-center rounded-md bg-paper text-ink">
       <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M13 3 5.8 13.4h5.1L10.2 21 18.2 10.2h-5.2L13 3Z" fill="currentColor"/></svg>
     </span>
     <span class="leading-none"><span class="font-serif text-xl tracking-tight">WriteSmart</span>
-    <span class="mt-0.5 block text-[11px] font-medium tracking-wide text-rule">Bidding bots</span></span>
-  </a><p class="mt-4 max-w-sm text-sm leading-relaxed text-paper/70">Chrome extensions that bid on Writedom and WritersHub while you write.</p></div>
-        <div><p class="text-xs font-medium uppercase tracking-wider text-rule">Products</p>
+    <span class="mt-0.5 block text-[11px] font-medium tracking-wide text-glow">Bidding bots</span></span>
+  </a><p class="mt-4 max-w-sm text-sm leading-relaxed text-mist">Chrome extensions that bid on Writedom and WritersHub while you write. Writers in every country.</p></div>
+        <div><p class="text-xs font-medium uppercase tracking-wider text-glow">Products</p>
           <ul class="mt-3 space-y-2 text-sm">
-            <li><a class="text-paper/70 hover:text-paper" href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc">Writedom bot</a></li>
-            <li><a class="text-paper/70 hover:text-paper" href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch">WritersHub bot</a></li>
-            <li><a class="text-paper/70 hover:text-paper" href="/bots/how/">Setup</a></li>
-            <li><a class="text-paper/70 hover:text-paper" href="/bots/faq/">FAQ</a></li>
+            <li><a class="text-mist hover:text-paper" href="https://chromewebstore.google.com/detail/jlapakeofcdacmmfhiomaijligichffc">Writedom bot</a></li>
+            <li><a class="text-mist hover:text-paper" href="https://chromewebstore.google.com/detail/dgpcgghdkegnnhfojoaglldjkllanbch">WritersHub bot</a></li>
+            <li><a class="text-mist hover:text-paper" href="/bots/how/">Setup</a></li>
+            <li><a class="text-mist hover:text-paper" href="/bots/faq/">FAQ</a></li>
           </ul></div>
-        <div><p class="text-xs font-medium uppercase tracking-wider text-rule">Support</p>
-          <ul class="mt-3 space-y-2 text-sm"><li><a class="text-paper/70 hover:text-paper" href="mailto:cephasmutisya02@gmail.com">cephasmutisya02@gmail.com</a></li><li class="text-paper/70">Replies within 30 minutes or less</li></ul></div>
+        <div><p class="text-xs font-medium uppercase tracking-wider text-glow">Support</p>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="text-mist hover:text-paper" href="https://wa.me/254707188251" target="_blank" rel="noreferrer">WhatsApp +254 707 188 251</a></li>
+            <li><a class="text-mist hover:text-paper" href="mailto:cephasmutisya02@gmail.com">cephasmutisya02@gmail.com</a></li>
+            <li class="text-mist">Replies within 30 minutes or less</li>
+          </ul></div>
       </div>
-      <div class="border-t border-white/10"><div class="mx-auto flex max-w-6xl px-4 py-5 text-xs text-rule sm:px-6"><p>© 2026 WriteSmart Technologies. Cephas Nyamai Mutisya.</p></div></div>
+      <div class="border-t border-glow/20"><div class="mx-auto flex max-w-6xl px-4 py-5 text-xs text-mist sm:px-6"><p>© 2026 WriteSmart Technologies. Cephas Nyamai Mutisya.</p></div></div>
     </footer>
   </div>
   <script src="/site.js" defer></script>
