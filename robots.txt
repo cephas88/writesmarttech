@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://writesmarttechnologies.com/sitemap.xml
+Sitemap: https://writesmarttech.com/sitemap.xml
