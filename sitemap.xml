@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://writesmarttech.com/</loc></url>
   <url><loc>https://writesmarttech.com/desk/</loc></url>
+  <url><loc>https://writesmarttech.com/desk/packages/</loc></url>
   <url><loc>https://writesmarttech.com/desk/work/</loc></url>
   <url><loc>https://writesmarttech.com/desk/how/</loc></url>
   <url><loc>https://writesmarttech.com/desk/about/</loc></url>
   <url><loc>https://writesmarttech.com/desk/faq/</loc></url>
   <url><loc>https://writesmarttech.com/desk/brief/</loc></url>
+  <url><loc>https://writesmarttech.com/regions/australia/</loc></url>
+  <url><loc>https://writesmarttech.com/regions/united-kingdom/</loc></url>
+  <url><loc>https://writesmarttech.com/regions/united-states/</loc></url>
   <url><loc>https://writesmarttech.com/bots/</loc></url>
   <url><loc>https://writesmarttech.com/bots/how/</loc></url>
   <url><loc>https://writesmarttech.com/bots/faq/</loc></url>
